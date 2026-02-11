@@ -8,10 +8,19 @@ export const Home = () => {
     const [filter, setFilter] = useState('')
 
     useEffect(() => {
-        setLoading(true)
-        fetch('')
-    })
+        setLoading(true);
+        fetch('https://www.themealdb.com/api/json/v1/1/search.php?s')
+            .then(res => res.json())
+            .then(data => setRecipes(data))
+            .catch(console.error) // Equivalent de err => console.error(err)
+            .finally(() => setLoading(false))
+    }, [/* dependencies */])
 
+        const filteredRecipes = useMemo(() => {
+        return recipes
+            .filter(r => r.strMeal.toLowerCase().includes(search.toLowerCase()))
+            .filter(r => filter ? r.strCategory.some(c => c.strMeal === filter) : true)
+    }, [recipes, search, filter])
 
     return (
         <div id="wrapper">
