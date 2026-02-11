@@ -28,13 +28,13 @@ function RecipeProvider({ children }) {
       .catch(console.error) // Equivalent de err => console.error(err)
       .finally(() => setLoading(false))
   }, [/* dependencies */])
-  
+
   const isFavorite = (recipe) => {
     return favorites.some(r => r.strMeal.toLowerCase() === recipe.strMeal.toLowerCase())
   }
 
   const addFavorites = (recipe) => {
-    if(!isFavorite(recipe)){
+    if (!isFavorite(recipe)) {
       setFavorites([...favorites, recipe])
     }
   }
@@ -43,7 +43,7 @@ function RecipeProvider({ children }) {
     setFavorites(favorites.filter(r => r.strMeal !== recipe.strMeal))
   }
 
-  return(
+  return (
     <RecipeContext.Provider value={{ recipes, favorites, loading, isFavorite, addFavorites, removeFavorite }} >
       {children}
     </RecipeContext.Provider>
@@ -56,12 +56,14 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/recipes/:id' element={<RecipeDetails />} />
-          <Route path='/favorites' element={<FavoriteRecipes />} />
-        </Routes>
+        <RecipeProvider>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/recipes/:id' element={<RecipeDetails />} />
+            <Route path='/favorites' element={<FavoriteRecipes />} />
+          </Routes>
+        </RecipeProvider>
       </BrowserRouter>
     </>
   )

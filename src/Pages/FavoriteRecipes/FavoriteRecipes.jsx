@@ -3,9 +3,9 @@ import { useRecipe } from "../../hooks/UseRecipe"
 import './FavoriteRecipes.css'
 
 export const FavoriteRecipes = (isFavorite) => {
-    const { favorites } = useRecipe()
+    const {favorites} = useRecipe()
 
-    return (
+    return(
         <RecipeList recipes={favorites} />
     )
 }
