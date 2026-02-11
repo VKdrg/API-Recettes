@@ -3,6 +3,8 @@ import './App.css'
 import { Header } from './Components/Header/Header'
 import { Home } from './Pages/Home/Home'
 import { createContext, useEffect, useState } from 'react'
+import { RecipeDetails } from './Pages/RecipeDetails/RecipeDetails'
+import { FavoriteRecipes } from './Pages/FavoriteRecipes/FavoriteRecipes'
 
 export const RecipeContext = createContext()
 
@@ -57,7 +59,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/recipes/:idMeal' element={<RecipeDetail />} />
+          <Route path='/recipes/:id' element={<RecipeDetails />} />
           <Route path='/favorites' element={<FavoriteRecipes />} />
         </Routes>
       </BrowserRouter>
