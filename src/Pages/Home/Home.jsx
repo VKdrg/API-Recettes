@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react"
 import { RecipeList } from "../../Components/RecipeList/RecipeList"
 import { RecipeSearch } from "../../Components/RecipeSearch/RecipeSearch"
 import { RecipeTypeFilter } from "../../Components/RecipeTypeFilter/RecipeTypeFilter"
+import './Home.css'
 
 export const Home = () => {
 

@@ -1,3 +1,31 @@
-nav{
-    
+* {
+    font-size: 62.5%
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 6rem;
+    background-color: #181612;
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+
+    img {
+        height: 6.4rem;
+    }
+
+    a {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        color: #fff;
+    }
+
+    a:active{
+        color: #f57c3a;
+    }
 }

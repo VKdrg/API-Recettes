@@ -12,7 +12,7 @@ export const Header = () => {
             <Link to={'/'}>
                 <img src="src/assets/logo.svg" alt="website logo" />
             </Link>
-            <NavLink to={'/favorites'} ><FaHeart size={80} />Favorites : {favorites.length} </NavLink>
+            <NavLink to={'/favorites'} ><FaHeart size={48} />Favorites : {favorites.length} </NavLink>
         </nav>
 
     )
