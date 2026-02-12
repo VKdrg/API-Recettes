@@ -1,7 +1,7 @@
 import { RecipeItem } from "../RecipeItem/RecipeItem"
 import './RecipeList.css'
 
-export const RecipeList = (recipes) => {
+export const RecipeList = ({ recipes }) => {
 
     return (
         <div>

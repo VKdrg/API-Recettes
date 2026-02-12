@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react"
 import { RecipeList } from "../../Components/RecipeList/RecipeList"
 import { RecipeSearch } from "../../Components/RecipeSearch/RecipeSearch"
+import { RecipeTypeFilter } from "../../Components/RecipeTypeFilter/RecipeTypeFilter"
 
 export const Home = () => {
 
@@ -27,8 +28,8 @@ export const Home = () => {
     return (
         <div id="wrapper">
             <h1>Recettes</h1>
-            <RecipeSearch setSearch={setSearch} />
-            <RecipeTypeFilter filter={filter} setFilter={setFilter} />
+            {/* <RecipeSearch setSearch={setSearch} />
+            <RecipeTypeFilter filter={filter} setFilter={setFilter} /> */}
             {
                 loading ?
                     <p>Loading ...</p> :
