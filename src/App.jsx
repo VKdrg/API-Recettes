@@ -55,16 +55,16 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
         <RecipeProvider>
+      <BrowserRouter>
           <Header />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/recipes/:id' element={<RecipeDetails />} />
             <Route path='/favorites' element={<FavoriteRecipes />} />
           </Routes>
-        </RecipeProvider>
       </BrowserRouter>
+        </RecipeProvider>
     </>
   )
 }

@@ -9,7 +9,7 @@ export const RecipeSearch = ({ setSearch }) => {
     const handleSubmit = useCallback(e => {
         e.preventDefault()
         setSearch(inputRef.current.value)
-    })
+    }, [])
 
     return (
         <form className="searchform" onSubmit={handleSubmit} >
