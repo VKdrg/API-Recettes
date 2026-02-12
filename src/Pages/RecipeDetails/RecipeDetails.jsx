@@ -1,25 +1,24 @@
 import { useEffect, useState } from "react"
 import { useLocation, useParams } from "react-router"
 import { useRecipe } from "../../hooks/UseRecipe"
+import { FaHeart, FaHeartBroken } from "react-icons/fa"
 
 
 export const RecipeDetails = () => {
     const { id } = useParams()
     const location = useLocation()
-    const { isFavorite, addFavorites } = useRecipe()
+    const {recipes,  isFavorite, addFavorites } = useRecipe()
 
-    const [recipe, setRecipe] = useState(location.state?.recipe)
-
-    useEffect(() => {
-        fetch('https://www.themealdb.com/api/json/v1/1/search.php?s')
-            .then(res => res.json())
-            .then(data => setRecipe(data))
-            .catch(console.error) // Equivalent de err => console.error(err)
-            .finally(() => setLoading(false))
-    }, [])
+    const [recipe, setRecipe] = useState(() => {
+        console.log(recipes)
+        const meal = recipes.meals.find(m => m.idMeal === id)
+        console.log(meal);
+        
+        return meal
+    })
 
     return (
-        recipe && <div>
+        recipe && <div id="wrapper">
             <h1>{recipe.strMeal}</h1>
             {
                 isFavorite(recipe) ?
@@ -27,22 +26,16 @@ export const RecipeDetails = () => {
                     :
                     <FaHeart onClick={() => addFavorites(recipe)} />
             }
-            <img src={recipe.strMealThumb} alt={`photography of ${strMeal}`} />
+            <img src={recipe.strMealThumb} alt={`photography of ${recipe.strMeal}`} />
             <div>
-                {/**
-                 * ingredients
-                 * ul > li
-                 * preparation
-                 * instructions
-                */}
-
                 <h2>Ingredients</h2>
                 <ul>
-                    {Object.keys(recipe.info).map((k,i) => {
-                        <li key={i}> {strMeasure[i]} {strIngredient[i]} </li>
+                    {Object.entries(recipe)/*.filter(k => k.includes("strIngredient"))*/.map(([k, v], i) => {
+                        return k.includes("strMeasure") /* && k.includes("strIngredient")*/ && <li key={i}> {v} </li>
                     })}
                 </ul>
                 <h2>Instructions</h2>
+                {/* <p>{recipe.strInstructions}</p> */}
             </div>
 
         </div>
