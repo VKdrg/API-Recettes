@@ -14,12 +14,13 @@ export const Home = () => {
         setLoading(true);
         fetch('https://www.themealdb.com/api/json/v1/1/search.php?s')
             .then(res => res.json())
-            .then(data => setRecipes(data))
+            .then(data => setRecipes(data.meals))
             .catch(console.error) // Equivalent de err => console.error(err)
             .finally(() => setLoading(false))
     }, [/* dependencies */])
 
         const filteredRecipes = useMemo(() => {
+            console.log(recipes)
         return recipes
             .filter(r => r.strMeal.toLowerCase().includes(search.toLowerCase()))
             .filter(r => filter ? r.strCategory.some(c => c.strMeal === filter) : true)
@@ -28,12 +29,12 @@ export const Home = () => {
     return (
         <div id="wrapper">
             <h1>Recettes</h1>
-            {/* <RecipeSearch setSearch={setSearch} />
-            <RecipeTypeFilter filter={filter} setFilter={setFilter} /> */}
+            <RecipeSearch setSearch={setSearch} />
+            <RecipeTypeFilter filter={filter} setFilter={setFilter} />
             {
                 loading ?
                     <p>Loading ...</p> :
-                    <RecipeList recipes={recipes} />
+                    <RecipeList recipes={filteredRecipes} />
             }
         </div>
     )

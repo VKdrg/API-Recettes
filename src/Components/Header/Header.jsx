@@ -1,6 +1,7 @@
 import { FaHeart } from "react-icons/fa"
 import { Link, NavLink } from "react-router"
 import { useRecipe } from "../../hooks/UseRecipe"
+import './Header.css'
 
 export const Header = () => {
     

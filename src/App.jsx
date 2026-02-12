@@ -5,6 +5,7 @@ import { Home } from './Pages/Home/Home'
 import { createContext, useEffect, useState } from 'react'
 import { RecipeDetails } from './Pages/RecipeDetails/RecipeDetails'
 import { FavoriteRecipes } from './Pages/FavoriteRecipes/FavoriteRecipes'
+import { Layout } from './Components/Layout/Layout'
 
 export const RecipeContext = createContext()
 
@@ -55,16 +56,18 @@ function App() {
 
   return (
     <>
-        <RecipeProvider>
-      <BrowserRouter>
+      <RecipeProvider>
+        <BrowserRouter>
           <Header />
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/recipes/:id' element={<RecipeDetails />} />
-            <Route path='/favorites' element={<FavoriteRecipes />} />
+            <Route path='/' element={<Layout />} >
+              <Route path='/' element={<Home />} />
+              <Route path='/recipes/:id' element={<RecipeDetails />} />
+              <Route path='/favorites' element={<FavoriteRecipes />} />
+            </Route>
           </Routes>
-      </BrowserRouter>
-        </RecipeProvider>
+        </BrowserRouter>
+      </RecipeProvider>
     </>
   )
 }
