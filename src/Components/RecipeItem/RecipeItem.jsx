@@ -6,7 +6,7 @@ export const RecipeItem = ({ recipe }) => {
 
     return (
 
-        <Link to={{ pathname: `/recipe/${recipe.strMeal}`, state: recipe }} className="card" >
+        <Link to={{ pathname: `/recipe/${recipe.strMeal}`, state: recipe }} id="recipeCard" >
             <h3>{recipe.strMeal}</h3>
             <img src={recipe.strMealThumb} alt={`photography of ${recipe.strMeal}`} />
             {/**

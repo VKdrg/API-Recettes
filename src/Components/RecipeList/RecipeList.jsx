@@ -4,7 +4,7 @@ import './RecipeList.css'
 export const RecipeList = ({ recipes }) => {
 
     return (
-        <div>
+        <div id="recipeList">
             {recipes.map(r => <RecipeItem key={r.idMeal} recipe={r} />)}
         </div>
     )

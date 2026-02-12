@@ -17,7 +17,7 @@ export const RecipeTypeFilter = ({ filter, setFilter }) => {
     }, [])
 
     return(
-        <div>
+        <div id="recipeFilters">
             {types.map(c => (
                 <label key={c.idCategory}>
                     <input
