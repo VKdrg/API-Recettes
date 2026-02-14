@@ -12,13 +12,15 @@ export const RecipeSearch = ({ setSearch }) => {
     }, [])
 
     return (
-        <form className="searchform" onSubmit={handleSubmit} >
+        <form id="searchform" onSubmit={handleSubmit} >
+            <h3>Search recipes :</h3>
             <input
+                id="inputSearch"
                 autoFocus
                 ref={inputRef}
                 placeholder="Search recipes ..."
             />
-            <button type="submit"><FaSearch /></button>
+            <button type="submit"><FaSearch size={16} /></button>
         </form>
     )
 }

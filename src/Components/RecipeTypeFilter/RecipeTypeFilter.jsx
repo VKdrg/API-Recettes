@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import './RecipeTypeFilter.css'
 
 
 export const RecipeTypeFilter = ({ filter, setFilter }) => {
@@ -18,15 +19,17 @@ export const RecipeTypeFilter = ({ filter, setFilter }) => {
 
     return(
         <div id="recipeFilters">
+            <h4>Filters :</h4>
             {types.map(c => (
                 <label key={c.idCategory}>
                     <input
                         type="radio"
                         name="category" 
-                        value={c.name}
-                        checked={filter === c.name}
-                        onChange={e => setFilter(c.name)}
+                        value={c.strCategory}
+                        checked={filter === c.strCategory}
+                        onChange={e => setFilter(c.strCategory)}
                     />
+                    {c.strCategory}
                 </label>
             ))}
         </div>

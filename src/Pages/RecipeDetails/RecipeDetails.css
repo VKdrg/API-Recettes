@@ -1,7 +1,13 @@
-*{
+* {
     font-size: 62.5%;
 }
 
-#wrapper{
+#wrapper {
     padding-top: 12rem;
+}
+
+#RecipeText {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
 }
