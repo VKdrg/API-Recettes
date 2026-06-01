@@ -7,6 +7,8 @@
 }
 
 h1 {
+    margin-left: 20rem;
+    margin-block: 1.6rem;
     font-size: 4rem;
     font-weight: 700;
 }
@@ -33,4 +35,8 @@ p {
     font-size: 1.6rem;
     font-weight: 200;
     line-height: 2.4rem;
+}
+
+body {
+    background-color: #202020;
 }

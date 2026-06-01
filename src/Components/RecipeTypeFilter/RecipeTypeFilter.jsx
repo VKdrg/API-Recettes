@@ -11,20 +11,20 @@ export const RecipeTypeFilter = ({ filter, setFilter }) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                
+
                 setTypes(data.categories)
-    })
+            })
             .catch(console.error)
     }, [])
 
-    return(
+    return (
         <div id="recipeFilters">
             <h4>Filters :</h4>
             {types.map(c => (
                 <label key={c.idCategory}>
                     <input
                         type="radio"
-                        name="category" 
+                        name="category"
                         value={c.strCategory}
                         checked={filter === c.strCategory}
                         onChange={e => setFilter(c.strCategory)}

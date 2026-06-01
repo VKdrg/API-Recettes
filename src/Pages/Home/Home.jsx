@@ -29,7 +29,7 @@ export const Home = () => {
 
     return (
         <div id="wrapper">
-            <h1>Recettes</h1>
+            <h1>API Recettes de cuisine</h1>
             <RecipeSearch setSearch={setSearch} />
             <RecipeTypeFilter filter={filter} setFilter={setFilter} />
             {

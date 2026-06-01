@@ -43,7 +43,10 @@ export const RecipeDetails = () => {
                 <h2>Instructions</h2>
                 <p>{recipe.strInstructions}</p>
             </div>
-            <img src={recipe.strMealThumb} alt={`photography of ${recipe.strMeal}`} />
+            <div id="footnotes">
+                <img src={recipe.strMealThumb} alt={`photography of ${recipe.strMeal}`} />
+                <h2>Bon appétit !</h2>
+            </div>
 
         </div>
     )

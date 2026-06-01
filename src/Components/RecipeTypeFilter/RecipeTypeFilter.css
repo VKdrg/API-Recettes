@@ -11,4 +11,8 @@
     label {
         margin-right: 2rem;
     }
+
+    input {
+        margin-right: 0.4rem;
+    }
 }
